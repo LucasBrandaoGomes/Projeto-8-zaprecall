@@ -1,9 +1,9 @@
-export default function Resultado(numeroDePerguntas, iconesDeRespostas){
+export default function Resultado({numeroDePerguntas, iconesDeRespostas}){
     return(
         <div className="resultados">
             <div>
                 {/* x sendo respostas e y sendo tamanho do deck */}
-                x/y CONCLUÍDOS
+                {iconesDeRespostas.length}/{numeroDePerguntas} CONCLUÍDOS
             </div>
             <div>
             { /* aqui deve vir a lista de icones dos acertos */ }

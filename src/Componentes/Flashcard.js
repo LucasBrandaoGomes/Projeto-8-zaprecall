@@ -50,22 +50,20 @@ function recall(caso, setPerguntaAberta, setTipoDeResposta, setIcon, iconesDeRes
     switch (caso){
         case "naoLembrei":
             setIcon("close-circle");
-            setIconesDeRespostas([...iconesDeRespostas])
-            //setIconesDeRespostas.push("close-circle")
+            setIconesDeRespostas(iconesDeRespostas =>[...iconesDeRespostas, "close-circle"])
             break;
         case "quaseLembrei":
             setIcon("help-circle");
-            setIconesDeRespostas([...iconesDeRespostas])
-            //setIconesDeRespostas.push("help-circle")
+            setIconesDeRespostas(iconesDeRespostas =>[...iconesDeRespostas, "helpicircle"])
             break;
         case "zap":
             setIcon("checkmark-circle");
-            setIconesDeRespostas([...iconesDeRespostas])
-            //setIconesDeRespostas.push("checkmark-circle")
+            setIconesDeRespostas(iconesDeRespostas =>[...iconesDeRespostas, "checkmark-circle"])
             break;
         default:
             break;
     }
+    console.log(iconesDeRespostas)
     setTipoDeResposta(caso);
     setPerguntaAberta(false);
 }
