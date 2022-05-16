@@ -21,8 +21,7 @@ export default function Flashcard({numeroDaPergunta, pergunta, resposta}) {
                         </h1>         
                         <div>
                             <button className="naoLembrei" onClick={() => recall("naoLembrei",setPerguntaAberta ,setTipoDeResposta, setIcon)}>
-                                <p>Não</p>
-                                <p>lembrei</p>
+                                Não lembrei
                             </button>
                             <button className="quaseLembrei" onClick={() => recall("quaseLembrei",setPerguntaAberta ,setTipoDeResposta, setIcon)}>
                                 Quase não lembrei
@@ -34,14 +33,10 @@ export default function Flashcard({numeroDaPergunta, pergunta, resposta}) {
                     </div>
                     :
                     <div className="flashCardAberta">
-                        <h1>
-                        {pergunta}
-                        </h1>
+                        <h1>{pergunta}</h1>
                         <img src={setinha} alt="Virar a flashcard" onClick={() => setPerguntaVirada(true)}/>          
                     </div>
-
                 :
-
                 <div className={`flashcard ${tipoDeResposta}`} onClick={() => setPerguntaAberta(true)}>
                     <h1>Pergunta {numeroDaPergunta}</h1>
                     <ion-icon name={icon}></ion-icon>
@@ -51,21 +46,25 @@ export default function Flashcard({numeroDaPergunta, pergunta, resposta}) {
     );
 }
 
-function recall(answerType, setPerguntaAberta, setTipoDeResposta, setIcon) {
-    switch (answerType){
+function recall(caso, setPerguntaAberta, setTipoDeResposta, setIcon) {
+    switch (caso){
         case "naoLembrei":
             setIcon("close-circle");
+            //guardar icone
             break;
         case "quaseLembrei":
             setIcon("help-circle");
+            //guardar icone
             break;
         case "zap":
             setIcon("checkmark-circle");
+            //guardar icone
             break;
         default:
             break;
     }
-    setTipoDeResposta(answerType);
+    //contar pergunta repspondida
+    setTipoDeResposta(caso);
     setPerguntaAberta(false);
 }
     

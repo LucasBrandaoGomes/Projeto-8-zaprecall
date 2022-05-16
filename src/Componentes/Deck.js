@@ -8,7 +8,8 @@ function sortDeck(deck) {
     return embaralhada;
 }
 
-export default function Deck({}) {
+export default function Deck() {
+
 
     const deck = [
             {
@@ -45,16 +46,16 @@ export default function Deck({}) {
             }
     ];
     
-    const sortedDeck = sortDeck(deck);
+    const perguntasEmbaralhadas = sortDeck(deck);
 
     return (
         <div className="todasPerguntas">
-            {sortedDeck.map((item, index) =>
+            {perguntasEmbaralhadas.map((pergunta, index) =>
             <Flashcard 
             numeroDaPergunta={index+1} 
-            pergunta={item.question} 
-            resposta={item.answer}
-            key={index}          
+            pergunta={pergunta.question} 
+            resposta={pergunta.answer}
+            key={index}       
             /> ) }
         </div>
     );
