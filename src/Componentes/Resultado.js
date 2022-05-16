@@ -1,6 +1,5 @@
-export default function Resultado(){
+export default function Resultado(contadorPerguntasRespondidas, numeroDePerguntas, iconesDeRespostas){
     return(
-    <>
         <div className="resultados">
             <div>
                 {/* x sendo acertos e y sendo tamanho do deck */}
@@ -24,6 +23,5 @@ export default function Resultado(){
             </div>
 
         </div>
-    </>
     )
 }

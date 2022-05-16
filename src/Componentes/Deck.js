@@ -8,7 +8,8 @@ function sortDeck(deck) {
     return embaralhada;
 }
 
-export default function Deck() {
+export default function Deck({setContadorPerguntasRespondidas, numeroDePerguntas, setNumeroDePerguntas,
+    iconesDeRespostas, setIconesDeRespostas}) {
 
 
     const deck = [
@@ -47,6 +48,7 @@ export default function Deck() {
     ];
     
     const perguntasEmbaralhadas = sortDeck(deck);
+    setNumeroDePerguntas(perguntasEmbaralhadas.length)
 
     return (
         <div className="todasPerguntas">
