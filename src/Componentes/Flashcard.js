@@ -2,7 +2,7 @@ import React from "react";
 import setinha from "../assets/images/setinha.png"
 
 
-export default function Flashcard({numeroDaPergunta, pergunta, resposta}) {
+export default function Flashcard({numeroDaPergunta, pergunta, resposta, iconesDeRespostas, setIconesDeRespostas}) {
     
     const [icon, setIcon] = React.useState("play-outline");
 
@@ -20,13 +20,13 @@ export default function Flashcard({numeroDaPergunta, pergunta, resposta}) {
                             {resposta}
                         </h1>         
                         <div>
-                            <button className="naoLembrei" onClick={() => recall("naoLembrei",setPerguntaAberta ,setTipoDeResposta, setIcon)}>
+                            <button className="naoLembrei" onClick={() => recall("naoLembrei",setPerguntaAberta ,setTipoDeResposta, setIcon, iconesDeRespostas, setIconesDeRespostas)}>
                                 Não lembrei
                             </button>
-                            <button className="quaseLembrei" onClick={() => recall("quaseLembrei",setPerguntaAberta ,setTipoDeResposta, setIcon)}>
+                            <button className="quaseLembrei" onClick={() => recall("quaseLembrei",setPerguntaAberta ,setTipoDeResposta, setIcon, iconesDeRespostas, setIconesDeRespostas)}>
                                 Quase não lembrei
                             </button>
-                            <button className="zap" onClick={() => recall("zap",setPerguntaAberta ,setTipoDeResposta, setIcon)}>
+                            <button className="zap" onClick={() => recall("zap",setPerguntaAberta ,setTipoDeResposta, setIcon, iconesDeRespostas, setIconesDeRespostas)}>
                                 Zap!
                             </button>
                         </div>
@@ -46,24 +46,26 @@ export default function Flashcard({numeroDaPergunta, pergunta, resposta}) {
     );
 }
 
-function recall(caso, setPerguntaAberta, setTipoDeResposta, setIcon) {
+function recall(caso, setPerguntaAberta, setTipoDeResposta, setIcon, iconesDeRespostas, setIconesDeRespostas) {
     switch (caso){
         case "naoLembrei":
             setIcon("close-circle");
-            //guardar icone
+            setIconesDeRespostas([...iconesDeRespostas])
+            //setIconesDeRespostas.push("close-circle")
             break;
         case "quaseLembrei":
             setIcon("help-circle");
-            //guardar icone
+            setIconesDeRespostas([...iconesDeRespostas])
+            //setIconesDeRespostas.push("help-circle")
             break;
         case "zap":
             setIcon("checkmark-circle");
-            //guardar icone
+            setIconesDeRespostas([...iconesDeRespostas])
+            //setIconesDeRespostas.push("checkmark-circle")
             break;
         default:
             break;
     }
-    //contar pergunta repspondida
     setTipoDeResposta(caso);
     setPerguntaAberta(false);
 }

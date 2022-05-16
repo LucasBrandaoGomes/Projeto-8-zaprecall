@@ -8,8 +8,7 @@ function sortDeck(deck) {
     return embaralhada;
 }
 
-export default function Deck({setContadorPerguntasRespondidas, numeroDePerguntas, setNumeroDePerguntas,
-    iconesDeRespostas, setIconesDeRespostas}) {
+export default function Deck({setNumeroDePerguntas, iconesDeRespostas, setIconesDeRespostas}) {
 
 
     const deck = [
@@ -57,7 +56,11 @@ export default function Deck({setContadorPerguntasRespondidas, numeroDePerguntas
             numeroDaPergunta={index+1} 
             pergunta={pergunta.question} 
             resposta={pergunta.answer}
-            key={index}       
+            key={index}
+            setNumeroDePerguntas={setNumeroDePerguntas}
+            iconesDeRespostas={iconesDeRespostas}
+            setIconesDeRespostas={setIconesDeRespostas}
+
             /> ) }
         </div>
     );

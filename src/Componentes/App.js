@@ -1,6 +1,6 @@
 import React from "react";
 import Init from "./Init";
-import MainScreen from "./Perguntas";
+import Perguntas from "./Perguntas";
 
 export default function App() {
 
@@ -9,7 +9,7 @@ export default function App() {
     return (
         <>
            {
-              começar ? <MainScreen /> : <Init setComeçar={setComeçar}/>
+              começar ? <Perguntas /> : <Init setComeçar={setComeçar}/>
            }
         </>
     );
