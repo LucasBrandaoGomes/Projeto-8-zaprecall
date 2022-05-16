@@ -54,7 +54,7 @@ function recall(caso, setPerguntaAberta, setTipoDeResposta, setIcon, iconesDeRes
             break;
         case "quaseLembrei":
             setIcon("help-circle");
-            setIconesDeRespostas(iconesDeRespostas =>[...iconesDeRespostas, "helpicircle"])
+            setIconesDeRespostas(iconesDeRespostas =>[...iconesDeRespostas, "help-circle"])
             break;
         case "zap":
             setIcon("checkmark-circle");
